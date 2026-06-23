@@ -2,3 +2,12 @@
 .hidden {
   display: none;
 }
+/* Trạng thái mặc định trên mobile có thể là ẩn menu hoặc thu gọn */
+.main-menu {
+  /* Các thuộc tính CSS sẵn có của bạn */
+}
+
+/* Khi menu có thêm class .active thì sẽ hiển thị ra */
+.main-menu.active {
+  display: block; /* Hoặc các thuộc tính định dạng hiển thị menu của bạn */
+}
