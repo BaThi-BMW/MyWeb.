@@ -1,91 +1,514 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f8ff;
-    margin: 0;
-    padding: 24px;
-    display: flex;
-    justify-content: center;
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esports Zone - Thế Giới Thể Thao Điện Tử</title>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
 
-.quiz-container {
-    max-width: 600px;
-    width: 100%;
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 18px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-}
+    :root {
+      --bg-dark: #0a0a12;
+      --bg-card: #121225;
+      --primary-neon: #ff0055; /* Hồng neon cháy */
+      --secondary-neon: #00f0ff; /* Xanh cyan điện tử */
+      --purple-glow: #9d00ff;
+      --text-main: #ffffff;
+      --text-muted: #8e8ea8;
+      --border-neon: rgba(255, 0, 85, 0.3);
+    }
 
-h2 {
-    color: #1e293b;
-    margin-bottom: 24px;
-    font-size: 1.4rem;
-    border-bottom: 2px solid #e2e8f0;
-    padding-bottom: 12px;
-}
+    body.dark-mode {
+      --bg-dark: #050508;
+      --bg-card: #0d0d1a;
+      --primary-neon: #ff3300; /* Cam cháy */
+    }
+    body.warm-mode {
+      --bg-dark: #1a0f1a;
+      --bg-card: #2d192d;
+      --primary-neon: #ff9900; /* Vàng hổ phách */
+      --secondary-neon: #00ffaa;
+    }
 
-.quiz-group {
-    margin-bottom: 24px;
-}
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-.question {
-    font-weight: bold;
-    color: #334155;
-    margin-bottom: 12px;
-}
+    /* HEADER & NAVIGATION */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: rgba(10, 10, 18, 0.85);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid var(--primary-neon);
+      box-shadow: 0 0 15px rgba(255, 0, 85, 0.2);
+    }
 
-label {
-    display: block;
-    padding: 10px 14px;
-    margin-bottom: 8px;
-    background: #f8fafc;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--text-main);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
 
-label:hover {
-    background: #f1f5f9;
-    border-color: #94a3b8;
-}
+    .logo span {
+      color: var(--primary-neon);
+      text-shadow: 0 0 10px var(--primary-neon);
+    }
 
-input[type="radio"] {
-    margin-right: 10px;
-}
+    .main-menu a {
+      color: var(--text-main);
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
 
-button {
-    background: #2383e2;
-    color: #ffffff;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-    transition: background 0.2s;
-}
+    .main-menu a:hover {
+      color: var(--secondary-neon);
+      text-shadow: 0 0 8px var(--secondary-neon);
+    }
 
-button:hover {
-    background: #1d6fa5;
-}
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--secondary-neon);
+      color: var(--secondary-neon);
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 4px;
+    }
 
-/* Phần hiển thị giải thích và kết quả */
-.explanation {
-    display: none; /* Mặc định ẩn đi */
-    margin-top: 10px;
-    padding: 12px;
-    background: #eff6ff;
-    border-left: 4px solid #3b82f6;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    color: #1e3a8a;
-}
+    /* HERO SECTION */
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      background: radial-gradient(circle, rgba(157,0,255,0.15) 0%, rgba(10,10,18,1) 70%);
+    }
 
-#resultMessage {
-    margin-top: 20px;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.1rem;
-}
+    .hero-image-wrapper img {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      background: linear-gradient(45deg, #fff, #ff0055, #00f0ff);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 4s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    button {
+      background: transparent;
+      color: var(--text-main);
+      border: 2px solid var(--primary-neon);
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 0, 85, 0.2);
+      clip-path: polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px);
+    }
+
+    button:hover {
+      background: var(--primary-neon);
+      box-shadow: 0 0 25px var(--primary-neon);
+      transform: translateY(-2px);
+    }
+
+    /* CONTROLS SECTION */
+    .controls-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 30px 8%;
+      background: rgba(18, 18, 37, 0.4);
+      border-radius: 8px;
+      margin: 20px 8%;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .control-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    select, input[type="text"] {
+      background: #161630;
+      border: 1px solid var(--border-neon);
+      color: var(--text-main);
+      padding: 10px 15px;
+      border-radius: 4px;
+      outline: none;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    select:focus, input[type="text"]:focus {
+      border-color: var(--secondary-neon);
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+    }
+
+    input[type="text"] {
+      width: 300px;
+    }
+
+    /* CARDS & IMAGES HOVER */
+    .content-section {
+      padding: 60px 8% 20px;
+    }
+
+    .content-section h2 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 35px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .content-section h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 60%;
+      height: 4px;
+      background: var(--secondary-neon);
+      box-shadow: 0 0 8px var(--secondary-neon);
+    }
+
+    .grid-container, .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-left: 4px solid var(--primary-neon);
+      border-radius: 4px;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+      border-left-color: var(--secondary-neon);
+      box-shadow: 0 10px 20px rgba(0, 240, 255, 0.15);
+    }
+
+    .card:hover .card-img-wrapper img {
+      transform: scale(1.1);
+    }
+
+    .card-body {
+      padding: 25px;
+    }
+
+    .card-body h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: var(--text-main);
+      transition: color 0.3s;
+    }
+
+    .card:hover .card-body h3 {
+      color: var(--secondary-neon);
+    }
+
+    .card-body p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* FILTER BUTTONS & AUDIO */
+    .filter-container {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      background: #181832;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 20px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: transparent;
+      color: var(--secondary-neon);
+      border-color: var(--secondary-neon);
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
+    }
+
+    .podcast-container {
+      border: 1px solid var(--border-neon);
+      box-shadow: 0 0 15px rgba(255, 0, 85, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    /* CONTACT FORM & FOOTER */
+    #contactForm {
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 0 auto;
+      border: 1px solid rgba(255, 0, 85, 0.2);
+    }
+
+    .form-group label {
+      color: var(--secondary-neon);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    #contactForm input[type="text"] {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    #contactForm button {
+      width: 100%;
+      margin-top: 20px !important;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 60px;
+      background: #05050a;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      header { padding: 15px 5%; }
+      .menu-toggle { display: block; }
+      .main-menu {
+        display: none;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--bg-dark);
+        flex-direction: column;
+        padding: 20px;
+        border-bottom: 2px solid var(--primary-neon);
+      }
+      .main-menu a { margin: 15px 0; display: block; }
+      .hero h1 { font-size: 2.2rem; }
+      .controls-section { flex-direction: column; align-items: stretch; margin: 20px 5%; }
+      input[type="text"] { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">ESPORTS <span>ZONE</span></div>
+    <button id="menuToggle" class="menu-toggle">☰ Menu</button>
+    <nav id="mainMenu" class="main-menu">
+      <a href="#home">Trang Chủ</a>
+      <a href="#news">Tin Tức</a>
+      <a href="#tournaments">Giải Đấu</a>
+      <a href="#gallery">Thư Viện</a>
+      <a href="#contact">Liên Hệ</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="home" class="hero">
+      <div class="hero-image-wrapper" style="max-width: 350px; margin: 0 auto 20px;">
+        <img src="cupu.png" alt="Esports World Cup Trophy" style="width: 100%; height: auto; filter: drop-shadow(0 0 15px var(--primary-neon));">
+      </div>
+      <div class="hero-content">
+        <h1 id="mainTitle">Đỉnh Cao Thể Thao Điện Tử</h1>
+        <p id="welcomeText">Cập nhật tin tức giải đấu, lịch thi đấu và khoảnh khắc Esports ấn tượng nhất.</p>
+        <button id="helloBtn">Đăng Ký Nhận Bản Tin</button>
+        <p id="helloResult"></p>
+      </div>
+    </section>
+
+    <section class="controls-section">
+      <div class="control-group">
+        <label for="themeSelect">⚡ Giao diện:</label>
+        <select id="themeSelect">
+          <option value="">Mặc định (Cyberpunk)</option>
+          <option value="dark-mode">Nền Tối Huyền Bí</option>
+          <option value="warm-mode">Nền Ấm Dịu Mắt</option>
+        </select>
+      </div>
+      
+      <div class="control-group">
+        <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm giải đấu, tựa game...">
+      </div>
+    </section>
+
+    <section id="news" class="content-section">
+      <h2>Điểm Tin Bản Tin Esports</h2>
+      <div class="podcast-container">
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1149792031&color=%23ff0055&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+      </div>
+    </section>
+
+    <section id="tournaments" class="content-section">
+      <h2>Các Giải Đấu Nổi Bật</h2>
+      <div class="grid-container">
+        
+        <article class="search-item card">
+          <div class="card-img-wrapper" style="width: 100%; height: 200px; overflow: hidden;">
+            <img src="san khau.jpg" alt="Sân khấu Chung Kết Thế Giới" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+          </div>
+          <div class="card-body">
+            <h3>🏆 CKTG - Liên Minh Huyền Thoại (LoL)</h3>
+            <p>Giải đấu Esports lớn nhất hành tinh quy tụ các đội tuyển mạnh nhất thế giới tranh cúp Triệu Hồi Sư.</p>
+          </div>
+        </article>
+
+        <article class="search-item card">
+          <div class="card-body">
+            <h3>🛡️ The International - Dota 2</h3>
+            <p>Giải đấu có tiền thưởng kỷ lục với những trận tranh tài chiến thuật đỉnh cao.</p>
+          </div>
+        </article>
+
+        <article class="search-item card">
+          <div class="card-body">
+            <h3>🎯 Valorant Champions Tour (VCT)</h3>
+            <p>Đấu trường bắn súng chiến thuật kịch tính từ nhà phát hành Riot Games.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="gallery" class="content-section">
+      <h2>Thư Viện Khoảnh Khắc</h2>
+      
+      <div class="filter-container filter-buttons">
+        <button class="filter-btn active" data-filter="all">Tất cả</button>
+        <button class="filter-btn" data-filter="sports">Thể Thao Truyền Thống</button>
+        <button class="filter-btn" data-filter="esports">Thể Thao Điện Tử</button>
+      </div>
+
+      <div class="gallery-grid">
+        
+        <article class="gallery-item card" data-category="sports">
+          <div class="card-body">
+            <h3>⚽ Ngoại Hạng Anh kịch tính</h3>
+            <p>Cập nhật bảng xếp hạng và kết quả các trận cầu tâm điểm.</p>
+          </div>
+        </article>
+
+        <article class="gallery-item card" data-category="esports">
+          <div class="card-img-wrapper" style="width: 100%; height: 200px; overflow: hidden;">
+            <img src="T1.webp" alt="T1 vô địch Worlds" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+          </div>
+          <div class="card-body">
+            <h3>🎮 Chung Kết Thế Giới LoL</h3>
+            <p>Vũ đài cạnh tranh khốc liệt của những đội tuyển LMHT hàng đầu.</p>
+          </div>
+        </article>
+
+        <article class="gallery-item card" data-category="sports">
+          <div class="card-body">
+            <h3>🌟 Ngôi sao Sân Cỏ</h3>
+            <p>Tin tức chuyển nhượng và phong độ của các siêu sao bóng đá.</p>
+          </div>
+        </article>
+
+        <article class="gallery-item card" data-category="esports">
+          <div class="card-body">
+            <h3>🔥 Đấu trường Valorant VCT</h3>
+            <p>Những pha đọ súng nghẹt thở và chiến thuật đỉnh cao.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="content-block content-section" id="contact">
+      <h2>Liên Hệ & Góp Ý</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="fullName">👤 Họ và tên:</label><br>
+          <input type="text" id="fullName" placeholder="Nhập họ tên của bạn...">
+        </div>
+        
+        <div class="form-group" style="margin-top: 15px;">
+          <label for="email">✉️ Email liên hệ:</label><br>
+          <input type="text" id="email" placeholder="example@gmail.com">
+        </div>
+
+        <p id="formMessage" style="font-weight: bold; margin-top: 10px;"></p>
+        <button type="submit">Gửi thông tin</button>
+      </form>
+    </section>
+
+  </main>
+  <footer>
+    <p>&copy; 2026 Esports Zone. Thiết kế dành cho bài thực hành JavaScript.</p>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
