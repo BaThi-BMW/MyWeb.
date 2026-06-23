@@ -143,3 +143,45 @@ if (filterButtons.length > 0 && galleryItems.length > 0) {
     });
   });
 }
+// =========================================================================
+// CHẶNG 09: KIỂM TRA FORM LIÊN HỆ TRƯỚC KHI GỬI (FORM VALIDATION)
+// =========================================================================
+const contactForm = document.getElementById("contactForm");
+const fullName = document.getElementById("fullName");
+const email = document.getElementById("email");
+const formMessage = document.getElementById("formMessage");
+
+// Kiểm tra xem tất cả các phần tử của Form có tồn tại trên trang hay không
+if (contactForm && fullName && email && formMessage) {
+  
+  // Lắng nghe sự kiện 'submit' khi người dùng bấm nút Gửi thông tin
+  contactForm.addEventListener("submit", function (event) {
+    // 1. Chặn hành vi mặc định (không cho phép trang web tải lại/F5)
+    event.preventDefault();
+
+    // 2. Lấy giá trị nhập vào và loại bỏ khoảng trắng thừa hai đầu bằng .trim()
+    const nameValue = fullName.value.trim();
+    const emailValue = email.value.trim();
+
+    // 3. Kiểm tra trường Họ và tên
+    if (nameValue === "") {
+      formMessage.textContent = "Vui lòng nhập họ tên.";
+      formMessage.style.color = "#ef4444"; // Màu đỏ báo lỗi
+      return; // Dừng xử lý hàm, không chạy tiếp xuống dưới
+    }
+
+    // 4. Kiểm tra trường Email (phải có chữ và chứa ký tự '@')
+    if (emailValue === "" || !emailValue.includes("@")) {
+      formMessage.textContent = "Vui lòng nhập email hợp lệ (phải chứa ký tự '@').";
+      formMessage.style.color = "#ef4444"; // Màu đỏ báo lỗi
+      return; // Dừng xử lý hàm
+    }
+
+    // 5. Nếu tất cả dữ liệu đều hợp lệ
+    formMessage.textContent = "Thông tin đã hợp lệ. Cảm ơn bạn đã gửi góp ý cho SportX!";
+    formMessage.style.color = "#22c55e"; // Màu xanh lá thành công
+    
+    // Tùy chọn: Xóa sạch dữ liệu trong các ô nhập sau khi gửi thành công
+    contactForm.reset();
+  });
+}
