@@ -8,7 +8,10 @@
 </head>
 <body>
     <div class="quiz-container">
+<h1 id="mainTitle">Website cá nhân của tôi</h1>
+<p id="welcomeText">Chào mừng bạn đến với MyWeb.</p>
         <h2>Bài 1 — Quiz nhanh: Vai trò JS, Biến, Toán tử</h2>
+
         
         <form id="quizForm">
             <div class="quiz-group">
