@@ -68,27 +68,34 @@
   <section id="gallery" class="content-section">
     <h2>Thư Viện Khoảnh Khắc</h2>
     
-    <div class="filter-buttons">
+    <div class="filter-container filter-buttons">
       <button class="filter-btn" data-filter="all">Tất cả</button>
-      <button class="filter-btn" data-filter="moba">Tựa Game MOBA</button>
-      <button class="filter-btn" data-filter="fps">Tựa Game FPS</button>
+      <button class="filter-btn" data-filter="sports">Thể Thao Truyền Thống</button>
+      <button class="filter-btn" data-filter="esports">Thể Thao Điện Tử</button>
     </div>
 
     <div class="gallery-grid">
-      <article class="gallery-item card" data-category="moba">
-        <h4>Liên Minh Huyền Thoại</h4>
-        <p>Hình ảnh thi đấu MOBA đồng đội kịch tính.</p>
-      </article>
       
-      <article class="gallery-item card" data-category="fps">
-        <h4>Valorant Esports</h4>
-        <p>Những pha đọ súng FPS căng thẳng từng giây.</p>
-      </article>
-      
-      <article class="gallery-item card" data-category="moba">
-        <h4>Dota 2 Champions</h4>
-        <p>Chiến thuật vĩ đại nâng cao chiếc khiên Aegis.</p>
-      </article>
+      <div class="gallery-item card" data-category="sports">
+        <h3>Ngoại Hạng Anh kịch tính</h3>
+        <p>Cập nhật bảng xếp hạng và kết quả các trận cầu tâm điểm.</p>
+      </div>
+
+      <div class="gallery-item card" data-category="esports">
+        <h3>Chung Kết Thế Giới LoL</h3>
+        <p>Vũ đài cạnh tranh khốc liệt của những đội tuyển LMHT hàng đầu.</p>
+      </div>
+
+      <div class="gallery-item card" data-category="sports">
+        <h3>Ngôi sao Sân Cỏ</h3>
+        <p>Tin tức chuyển nhượng và phong độ của các siêu sao bóng đá.</p>
+      </div>
+
+      <div class="gallery-item card" data-category="esports">
+        <h3>Đấu trường Valorant VCT</h3>
+        <p>Những pha đọ súng nghẹt thở và chiến thuật đỉnh cao.</p>
+      </div>
+
     </div>
   </section>
 
@@ -96,5 +103,6 @@
     <p>&copy; 2026 Esports Zone. Thiết kế dành cho bài thực hành JavaScript.</p>
   </footer>
 
+  <script src="../js/script.js"></script>
 </body>
 </html>
