@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 1: Vai trò JS, Biến, Toán tử</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Bài 1 — Quiz nhanh: Vai trò JS, Biến, Toán tử</h2>
+        
+        <form id="quizForm">
+            <div class="quiz-group">
+                <p class="question">1. JavaScript trong trang web chủ yếu phụ trách gì?</p>
+                <label><input type="radio" name="q1" value="wrong1"> Tạo cấu trúc trang</label>
+                <label><input type="radio" name="q1" value="correct"> Xử lý tương tác và hành vi</label>
+                <label><input type="radio" name="q1" value="wrong2"> Chỉ vẽ màu nền</label>
+                <div class="explanation" id="exp1">💡 <strong>Giải thích:</strong> HTML định nghĩa cấu trúc, CSS lo giao diện/màu nền, còn JavaScript phụ trách hành vi và tương tác.</div>
+            </div>
+
+            <div class="quiz-group">
+                <p class="question">2. Từ khóa nào nên dùng cho giá trị không muốn gán lại?</p>
+                <label><input type="radio" name="q2" value="wrong1"> var</label>
+                <label><input type="radio" name="q2" value="wrong2"> let</label>
+                <label><input type="radio" name="q2" value="correct"> const</label>
+                <div class="explanation" id="exp2">💡 <strong>Giải thích:</strong> <code>const</code> (constant) dùng để khai báo một hằng số, giá trị của nó không thể thay đổi hoặc gán lại trong suốt chương trình.</div>
+            </div>
+
+            <div class="quiz-group">
+                <p class="question">3. Toán tử nào nên ưu tiên để so sánh nghiêm ngặt?</p>
+                <label><input type="radio" name="q3" value="correct"> ===</label>
+                <label><input type="radio" name="q3" value="wrong1"> ==</label>
+                <label><input type="radio" name="q3" value="wrong2"> =</label>
+                <div class="explanation" id="exp3">💡 <strong>Giải thích:</strong> Toán tử <code>===</code> so sánh nghiêm ngặt cả về giá trị lẫn kiểu dữ liệu, giúp tránh lỗi ép kiểu ngầm định của <code>==</code>. Còn <code>=</code> là toán tử gán.</div>
+            </div>
+
+            <button type="submit" id="btnSubmit">Chấm quiz</button>
+        </form>
+
+        <div id="resultMessage"></div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
