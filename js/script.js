@@ -112,3 +112,34 @@ if (searchInput && searchItems.length > 0) {
     });
   });
 }
+// =========================================================================
+// CHẶNG 08: LỌC GALLERY ẢNH / BÀI VIẾT THEO NHÓM (DATA ATTRIBUTE)
+// =========================================================================
+const filterButtons = document.querySelectorAll(".filter-btn");
+const galleryItems = document.querySelectorAll(".gallery-item");
+
+// Kiểm tra nếu trên trang tồn tại bộ nút lọc và các danh mục cần lọc
+if (filterButtons.length > 0 && galleryItems.length > 0) {
+  
+  // Duyệt qua từng nút bấm trong danh sách bộ lọc
+  filterButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      
+      // Lấy giá trị của thuộc tính data-filter từ nút vừa bấm
+      const filterValue = button.dataset.filter;
+
+      // Duyệt qua từng item bài viết/ảnh để kiểm tra
+      galleryItems.forEach(function (item) {
+        // Lấy giá trị thuộc tính data-category của item
+        const itemCategory = item.dataset.category;
+
+        // Nếu bấm nút "all" HOẶC danh mục của item trùng khớp với nút bấm
+        if (filterValue === "all" || itemCategory === filterValue) {
+          item.style.display = ""; // Hiển thị lại bình thường
+        } else {
+          item.style.display = "none"; // Ẩn các item không liên quan
+        }
+      });
+    });
+  });
+}
