@@ -1,1 +1,4 @@
-
+/* Class dùng để ẩn phần tử */
+.hidden {
+  display: none;
+}
