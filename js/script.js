@@ -1,74 +1,114 @@
-<script src="../js/script.js"></script>
-// 1. Khai báo các biến mô tả website cá nhân
-const siteName = "MyWeb";
-let topic = "Chủ đề website cá nhân của em"; // Bạn có thể sửa lại thành chủ đề thật (ví dụ: Du lịch, Thú cưng...)
-let imageCount = 5;                        // Số lượng ảnh hiện có trên web
-let isReady = true;                        // Trạng thái đã sẵn sàng dùng JS
+// =========================================================================
+// CHẶNG 01: KIỂM TRA JAVASCRIPT ĐÃ CHẠY (CONSOLE + BIẾN)
+// =========================================================================
+const siteName = "SportX";
+let topic = "Thể thao truyền thống & Thể thao điện tử (Esports)";
+let sectionCount = 3; // Số lượng danh mục chính (Hero, Thể thao, Esports)
+let isReady = true;
 
-// 2. Dùng console.log() để in thông tin ra màn hình kiểm tra
-console.log("Website:", siteName);
+// In các giá trị ra cửa sổ Console của trình duyệt
+console.log("--- Kiểm tra kết nối SportX ---");
+console.log("Tên Website:", siteName);
 console.log("Chủ đề:", topic);
-console.log("Số ảnh:", imageCount);
-console.log("Đã sẵn sàng dùng JS?", isReady);
-console.log("Kiểu dữ liệu của topic:", typeof topic);
-// 1. Chọn các phần tử HTML dựa vào ID đã đặt
+console.log("Số lượng phân vùng chính:", sectionCount);
+console.log("Hệ thống JS đã sẵn sàng?", isReady);
+console.log("Kiểu dữ liệu của biến topic:", typeof topic);
+console.log("--------------------------------");
+// =========================================================================
+// CHẶNG 02: ĐỔI NỘI DUNG TIÊU ĐỀ BẰNG DOM (GETELEMENTBYID)
+// =========================================================================
+// 1. Tìm các phần tử HTML thông qua ID đã đặt
 const mainTitle = document.getElementById("mainTitle");
 const welcomeText = document.getElementById("welcomeText");
 
-// 2. Kiểm tra xem phần tử có tồn tại trên trang không trước khi thay đổi
+// 2. Kiểm tra chắc chắn các phần tử này tồn tại trên trang
 if (mainTitle && welcomeText) {
-  mainTitle.textContent = "MyWeb đã có JavaScript!";
-  welcomeText.textContent = "Nội dung này được cập nhật bằng file js/script.js.";
+  // 3. Thay đổi nội dung chữ (textContent) bằng JavaScript
+  mainTitle.textContent = "SportX - Vũ Đài Tốc Độ & Đam Mê!";
+  welcomeText.textContent = "Chào mừng bạn! Nội dung này vừa được cập nhật tự động bằng JavaScript.";
 }
-// 1. Lấy các phần tử HTML thông qua ID
+// =========================================================================
+// CHẶNG 03: NÚT CHÀO MỪNG (CLICK EVENT)
+// =========================================================================
 const helloBtn = document.getElementById("helloBtn");
 const helloResult = document.getElementById("helloResult");
 
-// 2. Kiểm tra chắc chắn rằng các phần tử này tồn tại trên trang hiện tại
 if (helloBtn && helloResult) {
-  // 3. Lắng nghe sự kiện click vào nút
   helloBtn.addEventListener("click", function () {
-    // 4. Thay đổi nội dung hiển thị của thẻ p khi click
-    helloResult.textContent = "Cảm ơn bạn đã ghé thăm MyWeb!";
+    helloResult.textContent = "Cảm ơn bạn đã ghé thăm SportX! Chúc bạn có những giây phút giải trí tuyệt vời.";
+    helloResult.style.color = "#00f2fe"; // Tạo điểm nhấn màu sắc cho lời chào
   });
 }
-// 1. Lấy các phần tử HTML từ DOM thông qua ID
+
+// =========================================================================
+// CHẶNG 04: ẨN/HIỆN NỘI DUNG GIỚI THIỆU (TOGGLE CLASS)
+// =========================================================================
 const toggleAboutBtn = document.getElementById("toggleAboutBtn");
 const aboutContent = document.getElementById("aboutContent");
 
-// 2. Kiểm tra chắc chắn các phần tử tồn tại trên trang
 if (toggleAboutBtn && aboutContent) {
-  // 3. Lắng nghe sự kiện click vào nút
   toggleAboutBtn.addEventListener("click", function () {
-    // 4. Bật/Tắt (Toggle) class 'hidden' cho khối nội dung
     aboutContent.classList.toggle("hidden");
   });
 }
-// 1. Lấy các phần tử HTML thông qua ID
+
+// =========================================================================
+// CHẶNG 05: MENU TƯƠNG TÁC TRÊN MOBILE (RESPONSIVE MENU)
+// =========================================================================
 const menuToggle = document.getElementById("menuToggle");
 const mainMenu = document.getElementById("mainMenu");
 
-// 2. Kiểm tra chắc chắn các phần tử tồn tại trên trang hiện tại
 if (menuToggle && mainMenu) {
-  // 3. Lắng nghe sự kiện click vào nút Menu
   menuToggle.addEventListener("click", function () {
-    // 4. Bật/Tắt class 'active' để ẩn/hiện menu
     mainMenu.classList.toggle("active");
+    
+    // Mở rộng: Đổi chữ nút bấm để tăng trải nghiệm người dùng
+    if (mainMenu.classList.contains("active")) {
+      menuToggle.textContent = "✖ Đóng";
+    } else {
+      menuToggle.textContent = "☰ Menu";
+    }
   });
 }
-// 1. Lấy phần tử select thông qua ID
+
+// =========================================================================
+// CHẶNG 06: CHỌN MÀU / CHỦ ĐỀ GIAO DIỆN (CHANGE EVENT)
+// =========================================================================
 const themeSelect = document.getElementById("themeSelect");
 
-// 2. Kiểm tra chắc chắn phần tử này tồn tại trên trang
 if (themeSelect) {
-  // 3. Lắng nghe sự kiện 'change' khi người dùng đổi lựa chọn
   themeSelect.addEventListener("change", function () {
-    // Xóa tất cả các class giao diện cũ khỏi thẻ body để tránh bị chồng chéo
+    // Xóa bỏ các class giao diện cũ để không bị xung đột màu
     document.body.classList.remove("dark-mode", "warm-mode");
     
-    // 4. Nếu người dùng chọn một giao diện khác mặc định, tiến hành thêm class đó vào body
+    // Nếu người dùng chọn giá trị khác mặc định, áp dụng class đó vào body
     if (themeSelect.value !== "") {
       document.body.classList.add(themeSelect.value);
     }
+  });
+}
+
+// =========================================================================
+// CHẶNG 07: TÌM KIẾM NHANH NỘI DUNG (KEYUP EVENT)
+// =========================================================================
+const searchInput = document.getElementById("searchInput");
+const searchItems = document.querySelectorAll(".search-item");
+
+if (searchInput && searchItems.length > 0) {
+  searchInput.addEventListener("keyup", function () {
+    // Chuyển từ khóa về chữ thường và loại bỏ khoảng trắng thừa hai đầu
+    const keyword = searchInput.value.toLowerCase().trim();
+
+    searchItems.forEach(function (item) {
+      // Lấy toàn bộ chữ bên trong card bài viết và chuyển về chữ thường
+      const text = item.textContent.toLowerCase();
+      
+      // Nếu văn bản chứa từ khóa thì hiển thị card, ngược lại ẩn đi
+      if (text.includes(keyword)) {
+        item.style.display = ""; // Khôi phục trạng thái hiển thị mặc định (CSS)
+      } else {
+        item.style.display = "none"; // Ẩn khối nội dung
+      }
+    });
   });
 }
