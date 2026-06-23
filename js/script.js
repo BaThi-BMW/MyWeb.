@@ -56,3 +56,19 @@ if (menuToggle && mainMenu) {
     mainMenu.classList.toggle("active");
   });
 }
+// 1. Lấy phần tử select thông qua ID
+const themeSelect = document.getElementById("themeSelect");
+
+// 2. Kiểm tra chắc chắn phần tử này tồn tại trên trang
+if (themeSelect) {
+  // 3. Lắng nghe sự kiện 'change' khi người dùng đổi lựa chọn
+  themeSelect.addEventListener("change", function () {
+    // Xóa tất cả các class giao diện cũ khỏi thẻ body để tránh bị chồng chéo
+    document.body.classList.remove("dark-mode", "warm-mode");
+    
+    // 4. Nếu người dùng chọn một giao diện khác mặc định, tiến hành thêm class đó vào body
+    if (themeSelect.value !== "") {
+      document.body.classList.add(themeSelect.value);
+    }
+  });
+}
