@@ -32,3 +32,15 @@ if (helloBtn && helloResult) {
     helloResult.textContent = "Cảm ơn bạn đã ghé thăm MyWeb!";
   });
 }
+// 1. Lấy các phần tử HTML từ DOM thông qua ID
+const toggleAboutBtn = document.getElementById("toggleAboutBtn");
+const aboutContent = document.getElementById("aboutContent");
+
+// 2. Kiểm tra chắc chắn các phần tử tồn tại trên trang
+if (toggleAboutBtn && aboutContent) {
+  // 3. Lắng nghe sự kiện click vào nút
+  toggleAboutBtn.addEventListener("click", function () {
+    // 4. Bật/Tắt (Toggle) class 'hidden' cho khối nội dung
+    aboutContent.classList.toggle("hidden");
+  });
+}
