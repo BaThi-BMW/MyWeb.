@@ -1,48 +1,100 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SportX - Thể Thao & Esports</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esports Zone - Thế Giới Thể Thao Điện Tử</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <button id="helloBtn">Nhấn để xem lời chào</button>
-<button id="toggleAboutBtn">Xem thêm / Thu gọn</button>
 
-<div id="aboutContent">
-  <p>. Eporst - bứt phá trên mọi chiến trường .</p>
-</div>
-<p id="helloResult"></p>
-    <header class="site-header" id="top">
-        
-        <div class="brand">SportX</div>
-        <select id="themeSelect">
-  <option value="">Giao diện mặc định</option>
-  <option value="dark-mode">Nền tối</option>
-  <option value="warm-mode">Nền ấm</option>
-</select>
-       <button id="menuToggle" class="menu-toggle">☰ Menu</button>
+  <header>
+    <div class="logo">ESPORTS <span>ZONE</span></div>
+    <button id="menuToggle" class="menu-toggle">☰ Menu</button>
+    <nav id="mainMenu" class="main-menu">
+      <a href="#home">Trang Chủ</a>
+      <a href="#news">Tin Tức</a>
+      <a href="#tournaments">Giải Đấu</a>
+      <a href="#gallery">Thư Viện</a>
+    </nav>
+  </header>
 
-<nav id="mainMenu" class="main-menu">
-  <a href="#home">Trang chủ</a>
-  <a href="#about">Giới thiệu</a>
-  <a href="#gallery">Thư viện</a>
-  <a href="#contact">Liên hệ</a>
-</nav>button" href="#sports">Khám phá ngay</a>
-        </section>
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1 id="mainTitle">Đỉnh Cao Thể Thao Điện Tử</h1>
+      <p id="welcomeText">Cập nhật tin tức giải đấu, lịch thi đấu và khoảnh khắc Esports ấn tượng nhất.</p>
+      <button id="helloBtn">Đăng Ký Nhận Bản Tin</button>
+      <p id="helloResult"></p>
+    </div>
+  </section>
 
-        <section class="content-block" id="sports">
-            <h2>Thể Thao Truyền Thống</h2>
-            <p>Theo dõi những giải đấu bóng đá hấp dẫn hành tinh: Ngoại Hạng Anh, Champions League và các ngôi sao sân cỏ.</p>
-        </section>
-
-        <section class="content-block" id="esports">
-            <h2>Thể Thao Điện Tử</h2>
-            <p>Vũ đài rực lửa của các bộ môn chiến thuật: Liên Minh Huyền Thoại (VCS, LCK), Valorant và Liên Quân Mobile.</p>
-        </section>
-    </main>
-    <script src="../js/script.js"></script>
-</body>
+  <section class="controls-section">
+    <div class="control-group">
+      <label for="themeSelect">Giao diện:</label>
+      <select id="themeSelect">
+        <option value="">Mặc định (Cyberpunk)</option>
+        <option value="dark-mode">Nền Tối Huyền Bí</option>
+        <option value="warm-mode">Nền Ấm Dịu Mắt</option>
+      </select>
+    </div>
     
+    <div class="control-group">
+      <input type="text" id="searchInput" placeholder="Tìm kiếm giải đấu, tựa game...">
+    </div>
+  </section>
+
+  <section id="tournaments" class="content-section">
+    <h2>Các Giải Đấu Nổi Bật</h2>
+    <div class="grid-container">
+      
+      <div class="search-item card">
+        <h3>Chung Kết Thế Giới - Liên Minh Huyền Thoại (LoL)</h3>
+        <p>Giải đấu Esports lớn nhất hành tinh quy tụ các đội tuyển mạnh nhất thế giới tranh cúp Triệu Hồi Sư.</p>
+      </div>
+
+      <div class="search-item card">
+        <h3>The International - Dota 2</h3>
+        <p>Giải đấu có tiền thưởng kỷ lục với những trận tranh tài chiến thuật đỉnh cao.</p>
+      </div>
+
+      <div class="search-item card">
+        <h3>Valorant Champions Tour (VCT)</h3>
+        <p>Đấu trường bắn súng chiến thuật kịch tính từ nhà phát hành Riot Games.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="gallery" class="content-section">
+    <h2>Thư Viện Khoảnh Khắc</h2>
+    
+    <div class="filter-buttons">
+      <button class="filter-btn" data-filter="all">Tất cả</button>
+      <button class="filter-btn" data-filter="moba">Tựa Game MOBA</button>
+      <button class="filter-btn" data-filter="fps">Tựa Game FPS</button>
+    </div>
+
+    <div class="gallery-grid">
+      <article class="gallery-item card" data-category="moba">
+        <h4>Liên Minh Huyền Thoại</h4>
+        <p>Hình ảnh thi đấu MOBA đồng đội kịch tính.</p>
+      </article>
+      
+      <article class="gallery-item card" data-category="fps">
+        <h4>Valorant Esports</h4>
+        <p>Những pha đọ súng FPS căng thẳng từng giây.</p>
+      </article>
+      
+      <article class="gallery-item card" data-category="moba">
+        <h4>Dota 2 Champions</h4>
+        <p>Chiến thuật vĩ đại nâng cao chiếc khiên Aegis.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Esports Zone. Thiết kế dành cho bài thực hành JavaScript.</p>
+  </footer>
+
+</body>
 </html>
