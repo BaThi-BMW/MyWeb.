@@ -1,187 +1,158 @@
-// =========================================================================
-// CHẶNG 01: KIỂM TRA JAVASCRIPT ĐÃ CHẠY (CONSOLE + BIẾN)
-// =========================================================================
-const siteName = "SportX";
-let topic = "Thể thao truyền thống & Thể thao điện tử (Esports)";
-let sectionCount = 3; // Số lượng danh mục chính (Hero, Thể thao, Esports)
-let isReady = true;
+/**
+ * ESPORTS ZONE - JAVASCRIPT LOGIC TRẬN ĐẤU
+ * Thực hiện: Quản lý giao diện, bộ lọc, tìm kiếm và tương tác form nâng cao.
+ */
 
-// In các giá trị ra cửa sổ Console của trình duyệt
-console.log("--- Kiểm tra kết nối SportX ---");
-console.log("Tên Website:", siteName);
-console.log("Chủ đề:", topic);
-console.log("Số lượng phân vùng chính:", sectionCount);
-console.log("Hệ thống JS đã sẵn sàng?", isReady);
-console.log("Kiểu dữ liệu của biến topic:", typeof topic);
-console.log("--------------------------------");
-// =========================================================================
-// CHẶNG 02: ĐỔI NỘI DUNG TIÊU ĐỀ BẰNG DOM (GETELEMENTBYID)
-// =========================================================================
-// 1. Tìm các phần tử HTML thông qua ID đã đặt
-const mainTitle = document.getElementById("mainTitle");
-const welcomeText = document.getElementById("welcomeText");
+document.addEventListener("DOMContentLoaded", () => {
+  // --- 1. KHỞI TẠO CÁC PHẦN TỬ ĐIỀU KHIỂN ---
+  const menuToggle = document.getElementById("menuToggle");
+  const mainMenu = document.getElementById("mainMenu");
+  const themeSelect = document.getElementById("themeSelect");
+  const searchInput = document.getElementById("searchInput");
+  const helloBtn = document.getElementById("helloBtn");
+  const helloResult = document.getElementById("helloResult");
+  const contactForm = document.getElementById("contactForm");
+  const formMessage = document.getElementById("formMessage");
 
-// 2. Kiểm tra chắc chắn các phần tử này tồn tại trên trang
-if (mainTitle && welcomeText) {
-  // 3. Thay đổi nội dung chữ (textContent) bằng JavaScript
-  mainTitle.textContent = "SportX - Vũ Đài Tốc Độ & Đam Mê!";
-  welcomeText.textContent = "Chào mừng bạn! Nội dung này vừa được cập nhật tự động bằng JavaScript.";
-}
-// =========================================================================
-// CHẶNG 03: NÚT CHÀO MỪNG (CLICK EVENT)
-// =========================================================================
-const helloBtn = document.getElementById("helloBtn");
-const helloResult = document.getElementById("helloResult");
+  // --- 2. XỬ LÝ MENU MOBILE (RESPONSIVE NAVIGATION) ---
+  if (menuToggle && mainMenu) {
+    menuToggle.addEventListener("click", (e) => {
+      e.stopPropagation(); // Ngăn sự kiện nổi bọt gây đóng menu ngay lập tức
+      mainMenu.classList.toggle("active");
+    });
 
-if (helloBtn && helloResult) {
-  helloBtn.addEventListener("click", function () {
-    helloResult.textContent = "Cảm ơn bạn đã ghé thăm SportX! Chúc bạn có những giây phút giải trí tuyệt vời.";
-    helloResult.style.color = "#00f2fe"; // Tạo điểm nhấn màu sắc cho lời chào
-  });
-}
+    // Tự động đóng menu khi nhấp vào một liên kết điều hướng
+    mainMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => mainMenu.classList.remove("active"));
+    });
 
-// =========================================================================
-// CHẶNG 04: ẨN/HIỆN NỘI DUNG GIỚI THIỆU (TOGGLE CLASS)
-// =========================================================================
-const toggleAboutBtn = document.getElementById("toggleAboutBtn");
-const aboutContent = document.getElementById("aboutContent");
-
-if (toggleAboutBtn && aboutContent) {
-  toggleAboutBtn.addEventListener("click", function () {
-    aboutContent.classList.toggle("hidden");
-  });
-}
-
-// =========================================================================
-// CHẶNG 05: MENU TƯƠNG TÁC TRÊN MOBILE (RESPONSIVE MENU)
-// =========================================================================
-const menuToggle = document.getElementById("menuToggle");
-const mainMenu = document.getElementById("mainMenu");
-
-if (menuToggle && mainMenu) {
-  menuToggle.addEventListener("click", function () {
-    mainMenu.classList.toggle("active");
-    
-    // Mở rộng: Đổi chữ nút bấm để tăng trải nghiệm người dùng
-    if (mainMenu.classList.contains("active")) {
-      menuToggle.textContent = "✖ Đóng";
-    } else {
-      menuToggle.textContent = "☰ Menu";
-    }
-  });
-}
-
-// =========================================================================
-// CHẶNG 06: CHỌN MÀU / CHỦ ĐỀ GIAO DIỆN (CHANGE EVENT)
-// =========================================================================
-const themeSelect = document.getElementById("themeSelect");
-
-if (themeSelect) {
-  themeSelect.addEventListener("change", function () {
-    // Xóa bỏ các class giao diện cũ để không bị xung đột màu
-    document.body.classList.remove("dark-mode", "warm-mode");
-    
-    // Nếu người dùng chọn giá trị khác mặc định, áp dụng class đó vào body
-    if (themeSelect.value !== "") {
-      document.body.classList.add(themeSelect.value);
-    }
-  });
-}
-
-// =========================================================================
-// CHẶNG 07: TÌM KIẾM NHANH NỘI DUNG (KEYUP EVENT)
-// =========================================================================
-const searchInput = document.getElementById("searchInput");
-const searchItems = document.querySelectorAll(".search-item");
-
-if (searchInput && searchItems.length > 0) {
-  searchInput.addEventListener("keyup", function () {
-    // Chuyển từ khóa về chữ thường và loại bỏ khoảng trắng thừa hai đầu
-    const keyword = searchInput.value.toLowerCase().trim();
-
-    searchItems.forEach(function (item) {
-      // Lấy toàn bộ chữ bên trong card bài viết và chuyển về chữ thường
-      const text = item.textContent.toLowerCase();
-      
-      // Nếu văn bản chứa từ khóa thì hiển thị card, ngược lại ẩn đi
-      if (text.includes(keyword)) {
-        item.style.display = ""; // Khôi phục trạng thái hiển thị mặc định (CSS)
-      } else {
-        item.style.display = "none"; // Ẩn khối nội dung
+    // Đóng menu khi người dùng bấm ra ngoài vùng menu
+    document.addEventListener("click", (e) => {
+      if (!mainMenu.contains(e.target) && e.target !== menuToggle) {
+        mainMenu.classList.remove("active");
       }
     });
-  });
-}
-// =========================================================================
-// CHẶNG 08: LỌC GALLERY ẢNH / BÀI VIẾT THEO NHÓM (DATA ATTRIBUTE)
-// =========================================================================
-const filterButtons = document.querySelectorAll(".filter-btn");
-const galleryItems = document.querySelectorAll(".gallery-item");
+  }
 
-// Kiểm tra nếu trên trang tồn tại bộ nút lọc và các danh mục cần lọc
-if (filterButtons.length > 0 && galleryItems.length > 0) {
-  
-  // Duyệt qua từng nút bấm trong danh sách bộ lọc
-  filterButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      
-      // Lấy giá trị của thuộc tính data-filter từ nút vừa bấm
-      const filterValue = button.dataset.filter;
+  // --- 3. BỘ CHUYỂN ĐỔI GIAO DIỆN (THEME SWITCHER) ---
+  if (themeSelect) {
+    // Lưu và khôi phục giao diện người dùng đã chọn từ LocalStorage
+    const savedTheme = localStorage.getItem("esports-theme");
+    if (savedTheme) {
+      document.body.className = savedTheme;
+      themeSelect.value = savedTheme;
+    }
 
-      // Duyệt qua từng item bài viết/ảnh để kiểm tra
-      galleryItems.forEach(function (item) {
-        // Lấy giá trị thuộc tính data-category của item
-        const itemCategory = item.dataset.category;
+    themeSelect.addEventListener("change", (e) => {
+      const selectedTheme = e.target.value;
+      // Reset toàn bộ class theme cũ rồi nạp class mới
+      document.body.className = selectedTheme;
+      localStorage.setItem("esports-theme", selectedTheme);
+    });
+  }
 
-        // Nếu bấm nút "all" HOẶC danh mục của item trùng khớp với nút bấm
-        if (filterValue === "all" || itemCategory === filterValue) {
-          item.style.display = ""; // Hiển thị lại bình thường
+  // --- 4. TÍNH NĂNG TÌM KIẾM GIẢI ĐẤU (REAL-TIME FILTER) ---
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      const keyword = e.target.value.toLowerCase().trim();
+      const tournamentCards = document.querySelectorAll("#tournaments .search-item");
+
+      tournamentCards.forEach((card) => {
+        const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
+        const desc = card.querySelector("p")?.textContent.toLowerCase() || "";
+
+        // Hiển thị nếu tiêu đề hoặc mô tả chứa từ khóa tìm kiếm
+        if (title.includes(keyword) || desc.includes(keyword)) {
+          card.classList.remove("hidden");
         } else {
-          item.style.display = "none"; // Ẩn các item không liên quan
+          card.classList.add("hidden");
+        }
+      });
+    });
+  }
+
+  // --- 5. BỘ LỌC THƯ VIỆN KHOẢNH KHẮC (CATEGORY FILTER) ---
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const galleryItems = document.querySelectorAll(".gallery-item");
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // 1. Chuyển trạng thái Active cho nút được nhấn
+      filterButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      // 2. Lọc các thẻ hình ảnh dựa vào thuộc tính data-category
+      const filterValue = btn.getAttribute("data-filter");
+
+      galleryItems.forEach((item) => {
+        const itemCategory = item.getAttribute("data-category");
+
+        if (filterValue === "all" || itemCategory === filterValue) {
+          item.classList.remove("hidden");
+          // Hiệu ứng Fade-in nhẹ nhàng khi hiển thị lại
+          item.style.opacity = "0";
+          setTimeout(() => {
+            item.style.transition = "opacity 0.4s ease";
+            item.style.opacity = "1";
+          }, 5);
+        } else {
+          item.classList.add("hidden");
         }
       });
     });
   });
-}
-// =========================================================================
-// CHẶNG 09: KIỂM TRA FORM LIÊN HỆ TRƯỚC KHI GỬI (FORM VALIDATION)
-// =========================================================================
-const contactForm = document.getElementById("contactForm");
-const fullName = document.getElementById("fullName");
-const email = document.getElementById("email");
-const formMessage = document.getElementById("formMessage");
 
-// Kiểm tra xem tất cả các phần tử của Form có tồn tại trên trang hay không
-if (contactForm && fullName && email && formMessage) {
-  
-  // Lắng nghe sự kiện 'submit' khi người dùng bấm nút Gửi thông tin
-  contactForm.addEventListener("submit", function (event) {
-    // 1. Chặn hành vi mặc định (không cho phép trang web tải lại/F5)
-    event.preventDefault();
+  // --- 6. XỬ LÝ ĐĂNG KÝ BẢN TIN (HERO NEWSLETTER) ---
+  if (helloBtn && helloResult) {
+    helloBtn.addEventListener("click", () => {
+      helloResult.style.color = "var(--cyber-cyan)";
+      helloResult.style.marginTop = "15px";
+      helloResult.style.fontWeight = "bold";
+      helloResult.style.textShadow = "var(--glow-cyan)";
+      helloResult.textContent = "⚡ Hệ thống: Đăng ký thành công! Bạn sẽ nhận được mật mã giải đấu sớm nhất.";
+      
+      // Khóa nút sau khi nhấn để tránh spam hiệu ứng
+      helloBtn.disabled = true;
+      helloBtn.style.opacity = "0.6";
+      helloBtn.style.cursor = "not-allowed";
+    });
+  }
 
-    // 2. Lấy giá trị nhập vào và loại bỏ khoảng trắng thừa hai đầu bằng .trim()
-    const nameValue = fullName.value.trim();
-    const emailValue = email.value.trim();
+  // --- 7. KIỂM TRA & XỬ LÝ FORM LIÊN HỆ CHUYÊN NGHIỆP ---
+  if (contactForm && formMessage) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault(); // Ngăn trang reload khi submit
 
-    // 3. Kiểm tra trường Họ và tên
-    if (nameValue === "") {
-      formMessage.textContent = "Vui lòng nhập họ tên.";
-      formMessage.style.color = "#ef4444"; // Màu đỏ báo lỗi
-      return; // Dừng xử lý hàm, không chạy tiếp xuống dưới
-    }
+      const fullName = document.getElementById("fullName").value.trim();
+      const email = document.getElementById("email").value.trim();
 
-    // 4. Kiểm tra trường Email (phải có chữ và chứa ký tự '@')
-    if (emailValue === "" || !emailValue.includes("@")) {
-      formMessage.textContent = "Vui lòng nhập email hợp lệ (phải chứa ký tự '@').";
-      formMessage.style.color = "#ef4444"; // Màu đỏ báo lỗi
-      return; // Dừng xử lý hàm
-    }
+      // Biểu thức chính quy kiểm tra định dạng Email chuẩn
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // 5. Nếu tất cả dữ liệu đều hợp lệ
-    formMessage.textContent = "Thông tin đã hợp lệ. Cảm ơn bạn đã gửi góp ý cho SportX!";
-    formMessage.style.color = "#22c55e"; // Màu xanh lá thành công
-    
-    // Tùy chọn: Xóa sạch dữ liệu trong các ô nhập sau khi gửi thành công
-    contactForm.reset();
-  });
-}
+      // Reset thông điệp trước đó
+      formMessage.textContent = "";
+      formMessage.style.textShadow = "none";
+
+      // Kiểm tra tính hợp lệ dữ liệu đầu vào
+      if (fullName === "" || email === "") {
+        formMessage.style.color = "var(--neon-red)";
+        formMessage.textContent = "❌ Lỗi: Vui lòng không bỏ trống thông tin tuyển thủ!";
+        return;
+      }
+
+      if (!emailRegex.test(email)) {
+        formMessage.style.color = "var(--neon-red)";
+        formMessage.textContent = "❌ Lỗi: Địa chỉ Email không hợp lệ trên hệ thống!";
+        return;
+      }
+
+      // Xử lý thành công (Giả lập gửi dữ liệu lên Server)
+      formMessage.style.color = "var(--gold-winner)";
+      formMessage.style.textShadow = "0 0 10px rgba(255,170,0,0.5)";
+      formMessage.textContent = `🚀 Gửi thành công! Xin chào chiến binh ${fullName}, chúng tôi sẽ phản hồi qua ${email} trong 24h tới.`;
+
+      // Làm sạch dữ liệu form sau khi gửi thành công
+      contactForm.reset();
+    });
+  }
+});
