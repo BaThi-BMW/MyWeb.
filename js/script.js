@@ -11,3 +11,12 @@ console.log("Chủ đề:", topic);
 console.log("Số ảnh:", imageCount);
 console.log("Đã sẵn sàng dùng JS?", isReady);
 console.log("Kiểu dữ liệu của topic:", typeof topic);
+// 1. Chọn các phần tử HTML dựa vào ID đã đặt
+const mainTitle = document.getElementById("mainTitle");
+const welcomeText = document.getElementById("welcomeText");
+
+// 2. Kiểm tra xem phần tử có tồn tại trên trang không trước khi thay đổi
+if (mainTitle && welcomeText) {
+  mainTitle.textContent = "MyWeb đã có JavaScript!";
+  welcomeText.textContent = "Nội dung này được cập nhật bằng file js/script.js.";
+}
