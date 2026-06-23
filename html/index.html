@@ -16,7 +16,8 @@
       <a href="#news">Tin Tức</a>
       <a href="#tournaments">Giải Đấu</a>
       <a href="#gallery">Thư Viện</a>
-      <a href="#contact">Liên Hệ</a> </nav>
+      <a href="#contact">Liên Hệ</a>
+    </nav>
   </header>
 
   <section id="home" class="hero">
@@ -43,23 +44,45 @@
     </div>
   </section>
 
+  <section id="news" class="content-section">
+    <h2>Điểm Tin Bản Tin Esports</h2>
+    <div class="podcast-container">
+      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1149792031&color=%23ff0055&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+    </div>
+  </section>
+
   <section id="tournaments" class="content-section">
     <h2>Các Giải Đấu Nổi Bật</h2>
     <div class="grid-container">
       
       <div class="search-item card">
-        <h3>Chung Kết Thế Giới - Liên Minh Huyền Thoại (LoL)</h3>
-        <p>Giải đấu Esports lớn nhất hành tinh quy tụ các đội tuyển mạnh nhất thế giới tranh cúp Triệu Hồi Sư.</p>
+        <div class="card-img-wrapper">
+          <img src="https://lootlevelchill.com/wp-content/uploads/2025/08/Leagues-Disrupt-1024x683.webp" alt="Leagues Disrupt">
+        </div>
+        <div class="card-body">
+          <h3>Chung Kết Thế Giới - Liên Minh Huyền Thoại (LoL)</h3>
+          <p>Giải đấu Esports lớn nhất hành tinh quy tụ các đội tuyển mạnh nhất thế giới tranh cúp Triệu Hồi Sư.</p>
+        </div>
       </div>
 
       <div class="search-item card">
-        <h3>The International - Dota 2</h3>
-        <p>Giải đấu có tiền thưởng kỷ lục với những trận tranh tài chiến thuật đỉnh cao.</p>
+        <div class="card-img-wrapper">
+          <img src="https://images2.thanhnien.vn/zoom/351_219/528068263637045248/2024/8/26/vct2-e1724177113401-17246861707321876841131-0-78-450-798-crop-1724686175639677044918.jpeg" alt="Valorant VCT">
+        </div>
+        <div class="card-body">
+          <h3>The International - Dota 2</h3>
+          <p>Giải đấu có tiền thưởng kỷ lục với những trận tranh tài chiến thuật đỉnh cao.</p>
+        </div>
       </div>
 
       <div class="search-item card">
-        <h3>Valorant Champions Tour (VCT)</h3>
-        <p>Đấu trường bắn súng chiến thuật kịch tính từ nhà phát hành Riot Games.</p>
+        <div class="card-img-wrapper">
+          <img src="https://images2.thanhnien.vn/zoom/351_219/528068263637045248/2024/8/26/vct2-e1724177113401-17246861707321876841131-0-78-450-798-crop-1724686175639677044918.jpeg" alt="Valorant VCT">
+        </div>
+        <div class="card-body">
+          <h3>Valorant Champions Tour (VCT)</h3>
+          <p>Đấu trường bắn súng chiến thuật kịch tính từ nhà phát hành Riot Games.</p>
+        </div>
       </div>
 
     </div>
@@ -69,7 +92,7 @@
     <h2>Thư Viện Khoảnh Khắc</h2>
     
     <div class="filter-container filter-buttons">
-      <button class="filter-btn" data-filter="all">Tất cả</button>
+      <button class="filter-btn active" data-filter="all">Tất cả</button>
       <button class="filter-btn" data-filter="sports">Thể Thao Truyền Thống</button>
       <button class="filter-btn" data-filter="esports">Thể Thao Điện Tử</button>
     </div>
@@ -77,23 +100,37 @@
     <div class="gallery-grid">
       
       <div class="gallery-item card" data-category="sports">
-        <h3>Ngoại Hạng Anh kịch tính</h3>
-        <p>Cập nhật bảng xếp hạng và kết quả các trận cầu tâm điểm.</p>
+        <div class="card-body">
+          <h3>Ngoại Hạng Anh kịch tính</h3>
+          <p>Cập nhật bảng xếp hạng và kết quả các trận cầu tâm điểm.</p>
+        </div>
       </div>
 
       <div class="gallery-item card" data-category="esports">
-        <h3>Chung Kết Thế Giới LoL</h3>
-        <p>Vũ đài cạnh tranh khốc liệt của những đội tuyển LMHT hàng đầu.</p>
+        <div class="card-img-wrapper">
+          <img src="https://lootlevelchill.com/wp-content/uploads/2025/08/Leagues-Disrupt-1024x683.webp" alt="LoL Worlds">
+        </div>
+        <div class="card-body">
+          <h3>Chung Kết Thế Giới LoL</h3>
+          <p>Vũ đài cạnh tranh khốc liệt của những đội tuyển LMHT hàng đầu.</p>
+        </div>
       </div>
 
       <div class="gallery-item card" data-category="sports">
-        <h3>Ngôi sao Sân Cỏ</h3>
-        <p>Tin tức chuyển nhượng và phong độ của các siêu sao bóng đá.</p>
+        <div class="card-body">
+          <h3>Ngôi sao Sân Cỏ</h3>
+          <p>Tin tức chuyển nhượng và phong độ của các siêu sao bóng đá.</p>
+        </div>
       </div>
 
       <div class="gallery-item card" data-category="esports">
-        <h3>Đấu trường Valorant VCT</h3>
-        <p>Những pha đọ súng nghẹt thở và chiến thuật đỉnh cao.</p>
+        <div class="card-img-wrapper">
+          <img src="https://images2.thanhnien.vn/zoom/351_219/528068263637045248/2024/8/26/vct2-e1724177113401-17246861707321876841131-0-78-450-798-crop-1724686175639677044918.jpeg" alt="Valorant VCT">
+        </div>
+        <div class="card-body">
+          <h3>Đấu trường Valorant VCT</h3>
+          <p>Những pha đọ súng nghẹt thở và chiến thuật đỉnh cao.</p>
+        </div>
       </div>
 
     </div>
@@ -101,7 +138,6 @@
 
   <section class="content-block content-section" id="contact">
     <h2>Liên Hệ & Góp Ý</h2>
-    
     <form id="contactForm">
       <div class="form-group">
         <label for="fullName">Họ và tên:</label><br>
@@ -114,7 +150,6 @@
       </div>
 
       <p id="formMessage" style="font-weight: bold; margin-top: 10px;"></p>
-
       <button type="submit" style="margin-top: 10px;">Gửi thông tin</button>
     </form>
   </section>
