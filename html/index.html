@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esports Championship | Đỉnh Cao Thể Thao Điện Tử</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">ESPORTS<span>ZONE</span></div>
+        <button id="menuToggle" class="menu-toggle">☰ Menu</button>
+        <nav id="mainMenu" class="main-menu">
+            <a href="#hero">Trang Chủ</a>
+            <a href="#evolution">Phát Triển</a>
+            <a href="#benefits">Giá Trị</a>
+            <a href="#gallery">Thư Viện Ảnh</a>
+            <a href="#contact">Đăng Ký Đội</a>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <h1 id="mainTitle">ĐẤU TRƯỜNG ESPORTS VÔ ĐỊCH</h1>
+        <p id="welcomeText">Nơi rèn luyện bản lĩnh, khẳng định tư duy và chinh phục vinh quang vĩnh cửu.</p>
+        <button id="helloBtn" class="btn-primary">Nhấn Xem Lời Chào</button>
+        <p id="helloResult" class="result-text"></p>
+    </section>
+
+    <section id="evolution" class="gallery-section">
+        <h2>Sự Phát Triển Thần Tốc</h2>
+        <div class="gallery-grid">
+            <article class="gallery-item search-item">
+                <div class="item-info" style="color: #00f0ff; font-size: 1.5rem; padding-top: 20px;">Khởi Đầu</div>
+                <p style="padding: 15px; text-align: justify; font-size: 14px;">
+                    Từ những phòng máy LAN chật hẹp và các giải đấu quy mô nhỏ, Esports đã chuyển mình mạnh mẽ thành một ngành công nghiệp giải trí tỷ đô, thu hút hàng triệu khán giả toàn cầu.
+                </p>
+            </article>
+
+            <article class="gallery-item search-item">
+                <div class="item-info" style="color: #ff003c; font-size: 1.5rem; padding-top: 20px;">Hiện Tại</div>
+                <p style="padding: 15px; text-align: justify; font-size: 14px;">
+                    Thể thao điện tử ngày nay đã được công nhận là môn thi đấu chính thức tại các đại hội thể thao lớn như SEA Games, Asian Games, sở hữu những nhà thi đấu hiện đại không thua kém bóng đá.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section id="benefits" class="contact-section" style="background: rgba(10, 2, 2, 0.7); border-top: 1px solid #ff003c; border-bottom: 1px solid #ff003c;">
+        <h2>Giá Trị Bản Thân & Xã Hội</h2>
+        <div class="gallery-grid" style="margin-top: 20px;">
+            <div style="background: #111; padding: 25px; border-radius: 8px; border-left: 4px solid #00f0ff;">
+                <h3 style="color: #00f0ff; margin-bottom: 10px;">🧠 Phát Triển Tư Duy</h3>
+                <p style="font-size: 14px; color: #ccc;">Rèn luyện phản xạ nhanh nhạy, tư duy chiến thuật đỉnh cao và khả năng ra quyết định chính xác trong vài mili giây.</p>
+            </div>
+            <div style="background: #111; padding: 25px; border-radius: 8px; border-left: 4px solid #ff003c;">
+                <h3 style="color: #ff003c; margin-bottom: 10px;">🤝 Tinh Thần Đồng Đội</h3>
+                <p style="font-size: 14px; color: #ccc;">Học cách thấu hiểu, phối hợp ăn ý với đồng đội và cùng nhau vượt qua áp lực để chạm tới chiến thắng.</p>
+            </div>
+            <div style="background: #111; padding: 25px; border-radius: 8px; border-left: 4px solid #00ff66;">
+                <h3 style="color: #00ff66; margin-bottom: 10px;">💼 Cơ Hội Sự Nghiệp</h3>
+                <p style="font-size: 14px; color: #ccc;">Mở ra cánh cửa trở thành tuyển thủ chuyên nghiệp, huấn luyện viên, bình luận viên (Caster) hoặc nhà tổ chức giải đấu lớn.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="motivation" class="gallery-section" style="padding: 40px 5%;">
+        <div style="max-width: 800px; margin: 0 auto; background: linear-gradient(45deg, #ff003c, #00f0ff); padding: 3px; border-radius: 10px;">
+            <div style="background: #050000; padding: 30px; border-radius: 8px;">
+                <h3 style="color: #fff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px;">🔥 Tinh Thần Bất Diệt 🔥</h3>
+                <p class="search-item" style="font-style: italic; font-size: 1.3rem; color: #fff; text-shadow: 0 0 10px rgba(0,240,255,0.5);">
+                    "Trò chơi có thể kết thúc, nhưng đam mê là mãi mãi. Đừng ngần ngại vấp ngã, vì mỗi lần thất bại là một bước tiến gần hơn đến cúp vàng vô địch!"
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery-section">
+        <h2>Khoảnh Khắc Huyền Thoại</h2>
+        
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">Tất Cả</button>
+            <button class="filter-btn" data-filter="stage">Sân Khấu</button>
+            <button class="filter-btn" data-filter="player">Tuyển Thủ</button>
+            <button class="filter-btn" data-filter="trophy">Cúp Vô Địch</button>
+        </div>
+
+        <div class="gallery-grid">
+            <article class="gallery-item" data-category="stage">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Sân khấu Esports hiện đại">
+                <div class="item-info">Sân Khấu Cyber Arena</div>
+            </article>
+
+            <article class="gallery-item" data-category="player">
+                <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=600&q=80" alt="Tuyển thủ Esports thi đấu">
+                <div class="item-info">Tuyển Thủ Tập Trung Cao Độ</div>
+            </article>
+
+            <article class="gallery-item" data-category="trophy">
+                <img src="https://images.unsplash.com/photo-1578269174936-2709b5a5e06e?auto=format&fit=crop&w=600&q=80" alt="Cúp vô địch Esports">
+                <div class="item-info">Cúp Vàng Danh Giá</div>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Đăng Ký Tham Gia Giải Đấu</h2>
+        <form id="contactForm" class="esports-form">
+            <div class="form-group">
+                <label for="fullName">Tên Đội Trưởng / Tuyển Thủ:</label>
+                <input type="text" id="fullName" placeholder="Nhập họ và tên...">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Liên Hệ:</label>
+                <input type="text" id="email" placeholder="example@gmail.com">
+            </div>
+            <button type="submit" class="btn-submit">Gửi Đơn Đăng Ký</button>
+            <p id="formMessage" class="form-message"></p>
+        </form>
+    </section>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
