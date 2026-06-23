@@ -44,3 +44,15 @@ if (toggleAboutBtn && aboutContent) {
     aboutContent.classList.toggle("hidden");
   });
 }
+// 1. Lấy các phần tử HTML thông qua ID
+const menuToggle = document.getElementById("menuToggle");
+const mainMenu = document.getElementById("mainMenu");
+
+// 2. Kiểm tra chắc chắn các phần tử tồn tại trên trang hiện tại
+if (menuToggle && mainMenu) {
+  // 3. Lắng nghe sự kiện click vào nút Menu
+  menuToggle.addEventListener("click", function () {
+    // 4. Bật/Tắt class 'active' để ẩn/hiện menu
+    mainMenu.classList.toggle("active");
+  });
+}
