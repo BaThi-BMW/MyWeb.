@@ -20,3 +20,15 @@ if (mainTitle && welcomeText) {
   mainTitle.textContent = "MyWeb đã có JavaScript!";
   welcomeText.textContent = "Nội dung này được cập nhật bằng file js/script.js.";
 }
+// 1. Lấy các phần tử HTML thông qua ID
+const helloBtn = document.getElementById("helloBtn");
+const helloResult = document.getElementById("helloResult");
+
+// 2. Kiểm tra chắc chắn rằng các phần tử này tồn tại trên trang hiện tại
+if (helloBtn && helloResult) {
+  // 3. Lắng nghe sự kiện click vào nút
+  helloBtn.addEventListener("click", function () {
+    // 4. Thay đổi nội dung hiển thị của thẻ p khi click
+    helloResult.textContent = "Cảm ơn bạn đã ghé thăm MyWeb!";
+  });
+}
