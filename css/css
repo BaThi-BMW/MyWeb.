@@ -11,3 +11,14 @@
 .main-menu.active {
   display: block; /* Hoặc các thuộc tính định dạng hiển thị menu của bạn */
 }
+/* Giao diện Nền tối */
+body.dark-mode {
+  background-color: #111827;
+  color: #f8fafc;
+}
+
+/* Giao diện Nền ấm (màu ngả vàng dịu mắt) */
+body.warm-mode {
+  background-color: #fff7ed;
+  color: #431407;
+}
