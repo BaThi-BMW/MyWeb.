@@ -1,0 +1,91 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f8ff;
+    margin: 0;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.quiz-container {
+    max-width: 600px;
+    width: 100%;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    color: #1e293b;
+    margin-bottom: 24px;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 12px;
+}
+
+.quiz-group {
+    margin-bottom: 24px;
+}
+
+.question {
+    font-weight: bold;
+    color: #334155;
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+label:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+button {
+    background: #2383e2;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #1d6fa5;
+}
+
+/* Phần hiển thị giải thích và kết quả */
+.explanation {
+    display: none; /* Mặc định ẩn đi */
+    margin-top: 10px;
+    padding: 12px;
+    background: #eff6ff;
+    border-left: 4px solid #3b82f6;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #1e3a8a;
+}
+
+#resultMessage {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.1rem;
+}
